@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "AppKeFuIMSDK.h"
+#import "SendTextViewController.h"
 #import "SendVoiceViewController.h"
 #import "WTStatusBar.h"
 #import "SVProgressHUD.h"
@@ -57,9 +58,7 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:APPKEFU_NOTIFICATION_MESSAGE object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:APPKEFU_IS_LOGIN_SUCCEED_NOTIFICATION object:nil];
-    
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -80,7 +79,7 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 6;
+    return 6 - 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,10 +121,10 @@
     {
         cell.textLabel.text = @"5.发送语音信息";
     }
-    else if (indexPath.row == 5)
-    {
-        cell.textLabel.text = @"6.排队咨询客服(高级接口)";
-    }
+    //else if (indexPath.row == 5)
+    //{
+    //    cell.textLabel.text = @"6.排队咨询客服(高级接口)";
+    //}
     
     return cell;
 }
@@ -142,7 +141,8 @@
     }
     else if (indexPath.row == 2)
     {
-        [self sendTextMsg];
+        SendTextViewController *textVC = [[SendTextViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        [self.navigationController pushViewController:textVC animated:YES];
     }
     else if (indexPath.row == 3)
     {
@@ -153,51 +153,31 @@
         SendVoiceViewController *voiceVC = [[SendVoiceViewController alloc] init];
         [self.navigationController pushViewController:voiceVC animated:YES];
     }
-    else if (indexPath.row == 5)
-    {
-        [[AppKeFuIMSDK sharedInstance] showQChatViewController:self.navigationController
-                                             withWorkgroupName:@"demo"
-                                                withWindowTile:@"排队咨询"
-                                           withBackgroundImage:nil];
-    }
+    //else if (indexPath.row == 5)
+    //{
+    //    [[AppKeFuIMSDK sharedInstance] showQChatViewController:self.navigationController
+    //                                         withWorkgroupName:@"demo"
+    //                                            withWindowTile:@"排队咨询"
+    //                                       withBackgroundImage:nil];
+    //}
     
 }
 
 - (void)startChatViewController
 {
-    //iOS 7.0以上版本显示扁平气泡
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
-        
-        //需要用真实的客服用户名替代"admin", 具体参见：http://appkefu.com/AppKeFu/tutorial-iOS.html
-        [[AppKeFuIMSDK sharedInstance] showChatViewController:self.navigationController
-                                             withKefuUsername:@"admin"
-                                                withGreetings:nil                       //@"你好，请问有什么可以帮您的？"
-                                              withBubbleStyle:KFMessageStyleFlat      //扁平气泡
-                                              withAvatarStyle:KFMessageAvatarStyleCircle//圆角头像，
-         //当avatarStyle不为KFMessageAvatarStyleNone时，以下两个参数才有效
-                                               withKefuAvatar:nil                       //自定义客服头像
-                                                 withMyAvatar:nil                       //自定义访客头像
-                                          withBackgroundImage:nil                       //backgroundImage
-                                            hideNavigationBar:FALSE                     //适用于需要全屏的App，比如：游戏类，需要全屏时需要设置为TRUE
-                                     hidesBottomBarWhenPushed:TRUE
-                                                    withTitle:@"咨询客服"];
-    }
-    //iOS 7.0以下版本显示立体气泡
-    else
-    {
-        //需要用真实的客服用户名替代"admin", 具体参见：http://appkefu.com/AppKeFu/tutorial-iOS.html
-        [[AppKeFuIMSDK sharedInstance] showChatViewController:self.navigationController
-                                             withKefuUsername:@"admin"
-                                                withGreetings:nil                       //@"你好，请问有什么可以帮您的？"
-                                              withBubbleStyle:KFMessageStyleDefault     //默认立体气泡
-                                              withAvatarStyle:KFMessageAvatarStyleSquare//圆角头像
-                                               withKefuAvatar:nil
-                                                 withMyAvatar:nil
-                                          withBackgroundImage:nil                       //backgroundImage
-                                            hideNavigationBar:FALSE                     //适用于需要全屏的App，比如：游戏类，需要全屏时需要设置为TRUE
-                                     hidesBottomBarWhenPushed:TRUE
-                                                    withTitle:@"咨询客服"];
-    }
+    //需要用真实的客服用户名替代"admin", 具体参见：http://appkefu.com/AppKeFu/tutorial-iOS.html
+    [[AppKeFuIMSDK sharedInstance] showChatViewController:self.navigationController
+                                        withKefuUsername:@"admin"
+                                            withGreetings:@"你好，请问有什么可以帮您的？" //@"你好，请问有什么可以帮您的？"
+                                          withBubbleStyle:KFMessageStyleFlat         //扁平气泡
+                                          withAvatarStyle:KFMessageAvatarStyleSquare //自定义头像形状，
+                                            //当avatarStyle不为KFMessageAvatarStyleNone时，以下两个参数才有效
+                                           withKefuAvatar:nil                       //自定义客服头像
+                                             withMyAvatar:nil                       //自定义访客头像
+                                      withBackgroundImage:nil                       //backgroundImage
+                                        hideNavigationBar:FALSE                     //适用于需要全屏的App，比如：游戏类，需要全屏时需要设置为TRUE
+                                hidesBottomBarWhenPushed:TRUE
+                                                withTitle:@"咨询客服"];
     
     //发送自定义消息接口，请将其放在合适的位置
     //[[AppKeFuIMSDK sharedInstance] sendTextMessage:@"发送自定义消息，会显示在用户会话窗口中" to:@"admin"];
@@ -206,35 +186,18 @@
     //[[AppKeFuIMSDK sharedInstance] sendBackgroundTextMessage:@"后台消息, 用户会话窗口无显示" to:@"admin"];
     
     //设置昵称，用于在客服客户端查看自定义用户名,否则客服客户端看到的将是一串数字, 请将其放在合适的位置
-    //[[AppKeFuIMSDK sharedInstance] setNickName:@"访客_ios"];
+    [[AppKeFuIMSDK sharedInstance] setNickName:@"访客_ios"];
     
-}
-
-- (void)sendTextMsg
-{
-    UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定要发送自定义消息？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    alertview.tag = 3;
-    [alertview show];
 }
 
 - (void)sendImgMsg
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"发送图片" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"相册",@"拍照", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"发送图片"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"取消"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"相册",@"拍照", nil];
     [actionSheet showInView:self.view];
-}
-
-
-#pragma mark UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView.tag == 3) {
-        
-        if (buttonIndex == 1) {
-            [[AppKeFuIMSDK sharedInstance] sendTextMessage:@"发送自定义消息_kefu_ios" to:@"admin"];
-        }
-        
-    }
-    
 }
 
 
@@ -248,7 +211,6 @@
     else if (buttonIndex == 1) {
         [self takePhoto];
     }
-    
 }
 
 #pragma mark 相册
@@ -314,7 +276,6 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    NSLog(@"%s",__FUNCTION__);
     [picker dismissViewControllerAnimated:YES completion:^{}];
 }
 

@@ -69,7 +69,7 @@
     newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSLog(@"deviceToken:%@", newToken);
     
-    //通过http get的方式将myusername, deviceToken, myappkey送到服务器，以便于离线消息推送
+    //通过http get的方式将myusername, deviceToken, myappkey送到服务器，用于离线消息推送
     NSURL *url = [NSURL URLWithString:[NSString localizedStringWithFormat:@"http://appkefu.com/AppKeFu/uploadDeviceToken.php?username=%@&token=%@&appkey=%@",myusername, newToken, myappkey]];
     
     NSMutableURLRequest* request = [NSMutableURLRequest new];
@@ -118,7 +118,7 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     
     //切换到前台重新登录
-    [SVProgressHUD showWithStatus:@"登录中..."];
+    //[SVProgressHUD showWithStatus:@"登录中..."];
     [[AppKeFuIMSDK sharedInstance] login];
 }
 

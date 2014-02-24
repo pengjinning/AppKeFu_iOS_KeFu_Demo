@@ -22,6 +22,7 @@
 		044B0F681856A43D0049CA44 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 044B0F651856A43D0049CA44 /* Default~iphone.png */; };
 		044B0F691856A43D0049CA44 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 044B0F661856A43D0049CA44 /* Default.png */; };
 		044B0F6A1856A43D0049CA44 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 044B0F671856A43D0049CA44 /* Default-568h@2x.png */; };
+		045DB60018B8880A00B15F5A /* SendTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045DB5FF18B8880A00B15F5A /* SendTextViewController.m */; };
 		049C6015181024580086EAF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049C6014181024580086EAF6 /* Foundation.framework */; };
 		049C6017181024580086EAF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049C6016181024580086EAF6 /* CoreGraphics.framework */; };
 		049C6019181024580086EAF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049C6018181024580086EAF6 /* UIKit.framework */; };
@@ -84,6 +85,8 @@
 		044B0F651856A43D0049CA44 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone.png"; path = "Resources/Default~iphone.png"; sourceTree = "<group>"; };
 		044B0F661856A43D0049CA44 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		044B0F671856A43D0049CA44 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
+		045DB5FE18B8880A00B15F5A /* SendTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendTextViewController.h; sourceTree = "<group>"; };
+		045DB5FF18B8880A00B15F5A /* SendTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendTextViewController.m; sourceTree = "<group>"; };
 		049C6011181024580086EAF6 /* AppKeFu_KeFu_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppKeFu_KeFu_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049C6014181024580086EAF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		049C6016181024580086EAF6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -262,6 +265,8 @@
 				049C6024181024580086EAF6 /* AppDelegate.m */,
 				04C2ECF8187FDBDF0041FCE5 /* MainViewController.h */,
 				04C2ECF9187FDBDF0041FCE5 /* MainViewController.m */,
+				045DB5FE18B8880A00B15F5A /* SendTextViewController.h */,
+				045DB5FF18B8880A00B15F5A /* SendTextViewController.m */,
 				04C2ECFB187FDE430041FCE5 /* SendVoiceViewController.h */,
 				04C2ECFC187FDE430041FCE5 /* SendVoiceViewController.m */,
 				049C602C181024580086EAF6 /* Images.xcassets */,
@@ -461,6 +466,7 @@
 			files = (
 				04C2ECF5187FDBB80041FCE5 /* WTStatusBar.m in Sources */,
 				04CBE40F1888D3BC00B52511 /* SVProgressHUD.m in Sources */,
+				045DB60018B8880A00B15F5A /* SendTextViewController.m in Sources */,
 				04C2ECF6187FDBB80041FCE5 /* WTStatusView.m in Sources */,
 				04C2ECF7187FDBB80041FCE5 /* WTStatusWindow.m in Sources */,
 				04C2ECFD187FDE430041FCE5 /* SendVoiceViewController.m in Sources */,
