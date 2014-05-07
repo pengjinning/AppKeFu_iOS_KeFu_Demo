@@ -163,6 +163,49 @@ typedef enum {
 //函数20: 获取用户名
 - (NSString*) getUsername;
 
+#pragma mark 用户标签
+//函数21：设置用户标签昵称
+- (NSString *)getTagNickname;
+
+//函数22：获取用户标签昵称
+- (void) setTagNickname:(NSString *)nickname;
+
+//函数23：设置用户标签性别
+- (NSString *)getTagSex;
+
+//函数24：获取用户标签性别
+- (void) setTagSex:(NSString *)sex;
+
+//函数25：设置用户标签语言
+- (NSString *)getTagLanguage;
+
+//函数26：获取用户标签语言
+- (void) setTagLanguage:(NSString *)language;
+
+//函数27：设置用户标签城市
+- (NSString *)getTagCity;
+
+//函数28：获取用户标签城市
+- (void) setTagCity:(NSString *)city;
+
+//函数29：设置用户标签省份
+- (NSString *)getTagProvince;
+
+//函数30：获取用户标签省份
+- (void) setTagProvince:(NSString *)province;
+
+//函数31：设置用户标签国家
+- (NSString *)getTagCountry;
+
+//函数32：设置用户标签国家
+- (void) setTagCountry:(NSString *)country;
+
+//函数33：设置用户标签其他
+- (NSString *)getTagOther;
+
+//函数34：获取用户标签其他
+- (void) setTagOther:(NSString *)other;
+
 @end
 
 

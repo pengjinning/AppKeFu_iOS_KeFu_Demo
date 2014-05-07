@@ -8,12 +8,12 @@
 
 #import "MainViewController.h"
 #import "AppKeFuIMSDK.h"
-#import "SendTextViewController.h"
-#import "SendVoiceViewController.h"
 #import "WTStatusBar.h"
 #import "SVProgressHUD.h"
+#import "FreeAPIsTableViewController.h"
+#import "VIPAPIsTableViewController.h"
 
-@interface MainViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface MainViewController ()
 
 @end
 
@@ -79,7 +79,7 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 6 - 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,36 +95,12 @@
     
     if (indexPath.row == 0)
     {
-        cell.textLabel.text = @"1.常见问题FAQ";
+        cell.textLabel.text = @"1.免费接口";
     }
     else if (indexPath.row == 1)
     {
-        //需要用真实的客服用户名替代"admin", 具体参见：http://appkefu.com/AppKeFu/tutorial-iOS.html
-        if ([[AppKeFuIMSDK sharedInstance] isKefuOnlineSync:@"admin"])
-        {
-            cell.textLabel.text = @"2.咨询客服(在线)";
-        }
-        else
-        {
-            cell.textLabel.text = @"2.咨询客服(离线)";
-        }
+        cell.textLabel.text = @"2.高级接口";
     }
-    else if (indexPath.row == 2)
-    {
-        cell.textLabel.text = @"3.发送文字信息";
-    }
-    else if (indexPath.row == 3)
-    {
-        cell.textLabel.text = @"4.发送图片信息";
-    }
-    else if (indexPath.row == 4)
-    {
-        cell.textLabel.text = @"5.发送语音信息";
-    }
-    //else if (indexPath.row == 5)
-    //{
-    //    cell.textLabel.text = @"6.排队咨询客服(高级接口)";
-    //}
     
     return cell;
 }
@@ -133,152 +109,15 @@
 {
     if (indexPath.row == 0)
     {
-        [[AppKeFuIMSDK sharedInstance] showFAQViewController:self.navigationController];
+        FreeAPIsTableViewController *freeAPIsVC = [[FreeAPIsTableViewController alloc] init];
+        [self.navigationController pushViewController:freeAPIsVC animated:YES];
     }
     else if (indexPath.row == 1)
     {
-        [self startChatViewController];
-    }
-    else if (indexPath.row == 2)
-    {
-        SendTextViewController *textVC = [[SendTextViewController alloc] initWithStyle:UITableViewStyleGrouped];
-        [self.navigationController pushViewController:textVC animated:YES];
-    }
-    else if (indexPath.row == 3)
-    {
-        [self sendImgMsg];
-    }
-    else if (indexPath.row == 4)
-    {
-        SendVoiceViewController *voiceVC = [[SendVoiceViewController alloc] init];
-        [self.navigationController pushViewController:voiceVC animated:YES];
-    }
-    //else if (indexPath.row == 5)
-    //{
-    //    [[AppKeFuIMSDK sharedInstance] showQChatViewController:self.navigationController
-    //                                         withWorkgroupName:@"demo"
-    //                                            withWindowTile:@"排队咨询"
-    //                                       withBackgroundImage:nil];
-    //}
-    
-}
-
-- (void)startChatViewController
-{
-    //需要用真实的客服用户名替代"admin", 具体参见：http://appkefu.com/AppKeFu/tutorial-iOS.html
-    [[AppKeFuIMSDK sharedInstance] showChatViewController:self.navigationController
-                                        withKefuUsername:@"admin"
-                                            withGreetings:@"你好，请问有什么可以帮您的？" //@"你好，请问有什么可以帮您的？"
-                                          withBubbleStyle:KFMessageStyleFlat         //扁平气泡
-                                          withAvatarStyle:KFMessageAvatarStyleSquare //自定义头像形状，
-                                            //当avatarStyle不为KFMessageAvatarStyleNone时，以下两个参数才有效
-                                           withKefuAvatar:nil                       //自定义客服头像
-                                             withMyAvatar:nil                       //自定义访客头像
-                                      withBackgroundImage:nil                       //backgroundImage
-                                        hideNavigationBar:FALSE                     //适用于需要全屏的App，比如：游戏类，需要全屏时需要设置为TRUE
-                                hidesBottomBarWhenPushed:TRUE
-                                                withTitle:@"咨询客服"];
-    
-    //发送自定义消息接口，请将其放在合适的位置
-    //[[AppKeFuIMSDK sharedInstance] sendTextMessage:@"发送自定义消息，会显示在用户会话窗口中" to:@"admin"];
-    
-    //利用此函数发送的消息不显示在消息记录中
-    //[[AppKeFuIMSDK sharedInstance] sendBackgroundTextMessage:@"后台消息, 用户会话窗口无显示" to:@"admin"];
-    
-    //设置昵称，用于在客服客户端查看自定义用户名,否则客服客户端看到的将是一串数字, 请将其放在合适的位置
-    [[AppKeFuIMSDK sharedInstance] setNickName:@"访客_ios"];
-    
-}
-
-- (void)sendImgMsg
-{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"发送图片"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"取消"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"相册",@"拍照", nil];
-    [actionSheet showInView:self.view];
-}
-
-
-#pragma mark UIActionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    
-    if (buttonIndex == 0) {
-        [self pickPhoto];
-    }
-    else if (buttonIndex == 1) {
-        [self takePhoto];
+        VIPAPIsTableViewController *vipAPIsVC = [[VIPAPIsTableViewController alloc] init];
+        [self.navigationController pushViewController:vipAPIsVC animated:YES];
     }
 }
-
-#pragma mark 相册
-- (void)pickPhoto
-{
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-	picker.delegate = self;
-	picker.allowsEditing = YES;
-    
-    [self presentViewController:picker animated:YES completion:^{
-    }];
-    
-}
-
-#pragma mark 拍照
-- (void)takePhoto
-{
-    UIImagePickerController *camera = [[UIImagePickerController alloc] init];
-	camera.delegate = self;
-	camera.allowsEditing = YES;
-	
-	//检查摄像头是否支持摄像机模式
-	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-	{
-		camera.sourceType = UIImagePickerControllerSourceTypeCamera;
-		camera.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
-	}
-	else
-	{
-		NSLog(@"Camera not exist");
-		return;
-	}
-	
-    [self presentViewController:camera animated:YES completion:^{
-        
-    }];
-}
-
-#pragma mark UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    [picker dismissViewControllerAnimated:YES completion:^{}];
-	NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-    
-	if([mediaType isEqualToString:@"public.movie"])			//被选中的是视频
-	{
-        
-	}
-	else if([mediaType isEqualToString:@"public.image"])	//被选中的是图片
-	{
-        //获取照片实例
-		UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        
-        //请将“admin”替换为实际的对方的用户名
-        [[AppKeFuIMSDK sharedInstance] sendImageMessage:UIImageJPEGRepresentation(image, 0) to:@"admin"];
-	}
-	else
-	{
-		NSLog(@"Error media type");
-		return;
-	}
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [picker dismissViewControllerAnimated:YES completion:^{}];
-}
-
 
 #pragma mark 接收消息通知
 - (void)messageReceived:(NSNotification *)notification

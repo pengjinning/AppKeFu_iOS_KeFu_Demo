@@ -78,14 +78,14 @@
 {
     sendVoicebutton.titleLabel.text = @"松开发送语音";
     
-    [[AppKeFuIMSDK sharedInstance] beginRecordingVoiceTo:@"admin" inView:self.view];
+    [[AppKeFuIMSDK sharedInstance] beginRecordingVoiceTo:@"your_kefu_username" inView:self.view];
 }
 
 -(void)recordEndAndSendVoiceMessage
 {
     sendVoicebutton.titleLabel.text = @"按住开始录音";
     
-    [[AppKeFuIMSDK sharedInstance] stopRecordingAndSendVoiceTo:@"admin"];
+    [[AppKeFuIMSDK sharedInstance] stopRecordingAndSendVoiceTo:@"your_kefu_username"];
 }
 
 -(void)recordCancel

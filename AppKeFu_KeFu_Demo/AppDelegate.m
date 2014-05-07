@@ -11,20 +11,28 @@
 #import "AppKeFuIMSDK.h"
 #import "SVProgressHUD.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //[[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
-
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    //自定义UINavigationBar
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        // Uncomment to change the background color of navigation bar
+        [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
+        // Uncomment to change the color of back button
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    }
     
     //注册离线消息推送
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
 
     // Override point for customization after application launch.
     MainViewController *sampleViewController = [[MainViewController alloc] init];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:sampleViewController];
+    self.navigationController = [[MyNavigationController alloc] initWithRootViewController:sampleViewController];
     //适用于全屏App，需要隐藏导航条的情况，比如：游戏类
     //[self.navigationController setNavigationBarHidden:TRUE animated:FALSE];
     
@@ -54,7 +62,7 @@
     
     //需要填写真实的appkey, 并在后台相应的应用内上传必要的证书
     //请到http://appkefu.com/AppKeFu/admin 申请 app key
-    NSString *myappkey = @"521c3187dfc2a7fe724ca4fa725b1c43";
+    NSString *myappkey = @"6f8103225b6ca0cfec048ecc8702dbce";
     
     //已经登录的用户名
     NSString *myusername = [[AppKeFuIMSDK sharedInstance] getUsername];//有待替换此方法，改为本地存储的

@@ -10,5 +10,6 @@
 
 @interface SendTextViewController : UITableViewController
 
+@property (nonatomic, assign) BOOL isBackgroundMessage;
 
 @end

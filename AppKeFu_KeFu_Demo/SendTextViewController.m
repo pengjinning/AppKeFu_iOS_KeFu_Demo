@@ -18,7 +18,7 @@
 
 @implementation SendTextViewController
 
-@synthesize sendTextMessageField;
+@synthesize sendTextMessageField, isBackgroundMessage;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,8 +41,9 @@
     
     self.tableView.allowsSelection = NO;
 	self.tableView.allowsSelectionDuringEditing = NO;
+    isBackgroundMessage = FALSE;
     
-    self.title = @"添加同事";
+    self.title = @"发送自定义消息";
     
     UITapGestureRecognizer *singleFingerTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
@@ -70,8 +71,9 @@
 - (void)notifyMessage:(NSNotification *)nofication
 {
     KFMessageItem *msgItem = [nofication object];
-    
-    [WTStatusBar setStatusText:[NSString stringWithFormat:@"来自%@的消息",msgItem.username] timeout:2 animated:YES];
+    if (!msgItem.isSendFromMe) {
+        [WTStatusBar setStatusText:[NSString stringWithFormat:@"来自%@的消息",msgItem.username] timeout:2 animated:YES];
+    }
 }
 
 - (void)notifyMUCMessage:(NSNotification *)nofication
@@ -125,7 +127,7 @@
     sendTextMessageField.placeholder = @"请输入自定义消息内容";
     sendTextMessageField.borderStyle = UITextBorderStyleNone;
     sendTextMessageField.clearButtonMode = UITextFieldViewModeAlways;
-    sendTextMessageField.keyboardType = UIKeyboardTypeASCIICapable;
+    //sendTextMessageField.keyboardType = UIKeyboardTypeASCIICapable;
     sendTextMessageField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     sendTextMessageField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     sendTextMessageField.returnKeyType = UIReturnKeySend;
@@ -170,7 +172,17 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        [[AppKeFuIMSDK sharedInstance] sendTextMessage:[sendTextMessageField text] to:@"admin"];
+        
+        if (isBackgroundMessage)
+        {
+            //利用此函数发送的消息不显示在消息记录中
+            [[AppKeFuIMSDK sharedInstance] sendBackgroundTextMessage:@"后台消息, 用户会话窗口无显示" to:@"your_kefu_username"];
+        }
+        else
+        {
+            //利用此接口发送的消息将会显示在聊天界面
+            [[AppKeFuIMSDK sharedInstance] sendTextMessage:[sendTextMessageField text] to:@"your_kefu_username"];
+        }
         [sendTextMessageField setText:@""];
     }
 }

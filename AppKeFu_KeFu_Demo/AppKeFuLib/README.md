@@ -37,17 +37,19 @@ libAppKeFu_KeFu_SDK.a 可同时在真机和模拟器上运行，体积较大
 
 
 升级日志：
-
+20140504:1. 开放排队咨询测试接口
+20140302:1. 优化会话界面体验
 20140111: 客服SDK：1、增加常见问题FAQ模块; 2、增加状态栏消息通知
 20140107:1、修复消息气泡高亮背景bug
 20131220:1、增加扁平气泡样式；2、可自行显示/隐藏/自定义客服/访客头像；3、可停止播放语音；
 
 
 
+注意：
+1.对于64位机器，如5s，会出现：build failure “Undefined symbols for architecture x86_64的错误，
+请找到Build Settings,将Architectures默认的Standard architectures(armv7, armv7s, arm64) 修改为armv7, armv7s
 
-
-
-
+2.在info.plist中添加Localizations设置item为Chinese (simplified), 这样打开图片库或拍照的时候就可以显示简体中文了
 
 
 

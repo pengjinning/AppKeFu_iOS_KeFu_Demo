@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		04019ACD1817F658002114D5 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04019ACC1817F658002114D5 /* libiconv.dylib */; };
+		042C0EC018FA2FDF0070169C /* FreeAPIsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042C0EBF18FA2FDF0070169C /* FreeAPIsTableViewController.m */; };
+		042C0EC318FA2FF50070169C /* VIPAPIsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042C0EC218FA2FF50070169C /* VIPAPIsTableViewController.m */; };
+		042C0EC618FA36550070169C /* TagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042C0EC518FA36550070169C /* TagsTableViewController.m */; };
+		042C0EC918FA366A0070169C /* TagsChangeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042C0EC818FA366A0070169C /* TagsChangeTableViewController.m */; };
 		044B0F5A1856A4300049CA44 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 044B0F4F1856A4300049CA44 /* Icon-29.png */; };
 		044B0F5B1856A4300049CA44 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 044B0F501856A4300049CA44 /* Icon-40.png */; };
 		044B0F5C1856A4300049CA44 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 044B0F511856A4300049CA44 /* Icon-50.png */; };
@@ -37,6 +41,7 @@
 		049C6040181024580086EAF6 /* AppKeFu_KeFu_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 049C603F181024580086EAF6 /* AppKeFu_KeFu_DemoTests.m */; };
 		04B1470D18166F3A0066F46E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B1470C18166F3A0066F46E /* ImageIO.framework */; };
 		04B1470F18166F6A0066F46E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B1470E18166F6A0066F46E /* MapKit.framework */; };
+		04B3823818E6C25700981CC8 /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B3823718E6C25700981CC8 /* MyNavigationController.m */; };
 		04BB0595182F27BE0084C115 /* libAppKeFu_KeFu_SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BB0594182F27BE0084C115 /* libAppKeFu_KeFu_SDK.a */; };
 		04BE92D41811086B000A82B2 /* AppKeFuResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04BE92D11811086B000A82B2 /* AppKeFuResources.bundle */; };
 		04BE92D7181108CB000A82B2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 04BE92D6181108CB000A82B2 /* README.md */; };
@@ -71,6 +76,14 @@
 
 /* Begin PBXFileReference section */
 		04019ACC1817F658002114D5 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		042C0EBE18FA2FDF0070169C /* FreeAPIsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeAPIsTableViewController.h; sourceTree = "<group>"; };
+		042C0EBF18FA2FDF0070169C /* FreeAPIsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeAPIsTableViewController.m; sourceTree = "<group>"; };
+		042C0EC118FA2FF50070169C /* VIPAPIsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPAPIsTableViewController.h; sourceTree = "<group>"; };
+		042C0EC218FA2FF50070169C /* VIPAPIsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPAPIsTableViewController.m; sourceTree = "<group>"; };
+		042C0EC418FA36550070169C /* TagsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsTableViewController.h; sourceTree = "<group>"; };
+		042C0EC518FA36550070169C /* TagsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsTableViewController.m; sourceTree = "<group>"; };
+		042C0EC718FA366A0070169C /* TagsChangeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsChangeTableViewController.h; sourceTree = "<group>"; };
+		042C0EC818FA366A0070169C /* TagsChangeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsChangeTableViewController.m; sourceTree = "<group>"; };
 		044B0F4F1856A4300049CA44 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-29.png"; path = "Resources/Icon-29.png"; sourceTree = "<group>"; };
 		044B0F501856A4300049CA44 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "Resources/Icon-40.png"; sourceTree = "<group>"; };
 		044B0F511856A4300049CA44 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-50.png"; path = "Resources/Icon-50.png"; sourceTree = "<group>"; };
@@ -105,6 +118,8 @@
 		049C603F181024580086EAF6 /* AppKeFu_KeFu_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppKeFu_KeFu_DemoTests.m; sourceTree = "<group>"; };
 		04B1470C18166F3A0066F46E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		04B1470E18166F6A0066F46E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		04B3823618E6C25700981CC8 /* MyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
+		04B3823718E6C25700981CC8 /* MyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
 		04BB0594182F27BE0084C115 /* libAppKeFu_KeFu_SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAppKeFu_KeFu_SDK.a; path = AppKeFuLib/libAppKeFu_KeFu_SDK.a; sourceTree = "<group>"; };
 		04BE92D01811086B000A82B2 /* AppKeFuIMSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppKeFuIMSDK.h; path = AppKeFuLib/AppKeFuIMSDK.h; sourceTree = "<group>"; };
 		04BE92D11811086B000A82B2 /* AppKeFuResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AppKeFuResources.bundle; path = AppKeFuLib/AppKeFuResources.bundle; sourceTree = "<group>"; };
@@ -263,8 +278,18 @@
 				04BE92CF18110859000A82B2 /* AppKeFuLib */,
 				049C6023181024580086EAF6 /* AppDelegate.h */,
 				049C6024181024580086EAF6 /* AppDelegate.m */,
+				04B3823618E6C25700981CC8 /* MyNavigationController.h */,
+				04B3823718E6C25700981CC8 /* MyNavigationController.m */,
 				04C2ECF8187FDBDF0041FCE5 /* MainViewController.h */,
 				04C2ECF9187FDBDF0041FCE5 /* MainViewController.m */,
+				042C0EBE18FA2FDF0070169C /* FreeAPIsTableViewController.h */,
+				042C0EBF18FA2FDF0070169C /* FreeAPIsTableViewController.m */,
+				042C0EC418FA36550070169C /* TagsTableViewController.h */,
+				042C0EC518FA36550070169C /* TagsTableViewController.m */,
+				042C0EC718FA366A0070169C /* TagsChangeTableViewController.h */,
+				042C0EC818FA366A0070169C /* TagsChangeTableViewController.m */,
+				042C0EC118FA2FF50070169C /* VIPAPIsTableViewController.h */,
+				042C0EC218FA2FF50070169C /* VIPAPIsTableViewController.m */,
 				045DB5FE18B8880A00B15F5A /* SendTextViewController.h */,
 				045DB5FF18B8880A00B15F5A /* SendTextViewController.m */,
 				04C2ECFB187FDE430041FCE5 /* SendVoiceViewController.h */,
@@ -396,6 +421,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = appkefu.com;
 				TargetAttributes = {
+					049C6010181024580086EAF6 = {
+						DevelopmentTeam = L5F47963M2;
+					};
 					049C6031181024580086EAF6 = {
 						TestTargetID = 049C6010181024580086EAF6;
 					};
@@ -465,7 +493,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C2ECF5187FDBB80041FCE5 /* WTStatusBar.m in Sources */,
+				042C0EC618FA36550070169C /* TagsTableViewController.m in Sources */,
 				04CBE40F1888D3BC00B52511 /* SVProgressHUD.m in Sources */,
+				042C0EC318FA2FF50070169C /* VIPAPIsTableViewController.m in Sources */,
+				042C0EC018FA2FDF0070169C /* FreeAPIsTableViewController.m in Sources */,
 				045DB60018B8880A00B15F5A /* SendTextViewController.m in Sources */,
 				04C2ECF6187FDBB80041FCE5 /* WTStatusView.m in Sources */,
 				04C2ECF7187FDBB80041FCE5 /* WTStatusWindow.m in Sources */,
@@ -473,6 +504,8 @@
 				04C2ECFA187FDBDF0041FCE5 /* MainViewController.m in Sources */,
 				049C6025181024580086EAF6 /* AppDelegate.m in Sources */,
 				049C6021181024580086EAF6 /* main.m in Sources */,
+				042C0EC918FA366A0070169C /* TagsChangeTableViewController.m in Sources */,
+				04B3823818E6C25700981CC8 /* MyNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,9 +622,14 @@
 		049C6044181024580086EAF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppKeFu_KeFu_Demo/AppKeFu_KeFu_Demo-Prefix.pch";
 				INFOPLIST_FILE = "AppKeFu_KeFu_Demo/AppKeFu_KeFu_Demo-Info.plist";
@@ -605,6 +643,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -612,9 +651,14 @@
 		049C6045181024580086EAF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppKeFu_KeFu_Demo/AppKeFu_KeFu_Demo-Prefix.pch";
 				INFOPLIST_FILE = "AppKeFu_KeFu_Demo/AppKeFu_KeFu_Demo-Info.plist";
@@ -628,6 +672,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
